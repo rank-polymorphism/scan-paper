@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rank polymorphism at work</title>
+<style>
+  :root {
+    --bg: #ffffff; --fg: #1f2328; --muted: #59636e;
+    --link: #0b5cad; --rule: #d8dee4; --code-bg: #f6f8fa;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0d1117; --fg: #e6edf3; --muted: #9198a1;
+      --link: #6cb6ff; --rule: #30363d; --code-bg: #161b22;
+    }
+  }
+  body {
+    background: var(--bg); color: var(--fg);
+    font: 17px/1.55 Georgia, "Times New Roman", serif;
+    max-width: 44rem; margin: 0 auto; padding: 2.5rem 1rem 4rem;
+  }
+  h1 { font-size: 2rem; font-weight: normal; margin: 0 0 .25rem; }
+  h2 { font-size: 1.2rem; margin: 2.25rem 0 .5rem;
+       border-bottom: 1px solid var(--rule); padding-bottom: .25rem; }
+  .kind { font-variant: small-caps; letter-spacing: .12em; color: var(--muted); margin: 0; }
+  .authors { margin: .25rem 0; }
+  .venue { color: var(--muted); margin: 0; }
+  a { color: var(--link); }
+  ul.links { list-style: none; padding: 0; margin: 1.5rem 0; display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; }
+  ul.links a { font-weight: bold; }
+  table { border-collapse: collapse; width: 100%; font-size: .95rem; }
+  th, td { text-align: left; vertical-align: top; padding: .35rem .5rem; border-bottom: 1px solid var(--rule); }
+  th { font-weight: bold; }
+  td:nth-child(2) { white-space: nowrap; }
+  code, pre { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .85em; }
+  pre { background: var(--code-bg); padding: .75rem 1rem; overflow-x: auto; border-radius: 4px; }
+</style>
+</head>
+<body>
+
+<p class="kind">Functional pearl</p>
+<h1>Rank polymorphism at work</h1>
+<p class="authors">Artjoms Šinkarovs and Sven-Bodo Scholz</p>
+<p class="venue">Journal of Functional Programming 36, Article 20, 2026.
+  <a href="https://doi.org/10.46298/jfp.17992">doi:10.46298/jfp.17992</a></p>
+
+<ul class="links">
+  <li><a href="paper.pdf">Paper (PDF)</a></li>
+  <li><a href="agda/Everything.html">Agda code (HTML)</a></li>
+  <li><a href="https://github.com/rank-polymorphism/scan-paper">Sources</a></li>
+</ul>
+
+<h2>Abstract</h2>
+<p>This pearl demonstrates how rank polymorphism enables programmers to
+abstract performance-tuning aspects into the ranks and shapes of function
+arguments. Using prefix sum as an example, we show how a single, generic
+rank-polymorphic specification can represent an entire class of traditionally
+separate algorithmic specifications that differ in performance characteristics
+but not in the overall outcome.</p>
+<p>The elegance of this approach lies in the observation that, once encoded
+within a dependently-typed language, we can prove that certain classes of
+argument reshaping do not affect the overall computational outcome.
+Consequently, this establishes the equivalence of all corresponding algorithmic
+specifications, which in classic (typically imperative) settings would be
+extremely tedious, if feasible at all.</p>
+
+<h2>Agda code</h2>
+<p>The paper is written in literate Agda. The modules below contain all of its
+code, including the proofs omitted from the paper, organised by paper
+section. They are extracted from the literate sources, so they contain
+exactly the code checked when building the paper.</p>
+<table>
+  <tr><th>Module</th><th>Paper</th><th>Contents</th></tr>
+  <tr><td><a href="agda/Arrays.html">Arrays</a></td><td>§2.1–2.2</td>
+      <td>Array theory, example models, array operations and equality</td></tr>
+  <tr><td><a href="agda/Initial.html">Initial</a></td><td>§2.3</td>
+      <td>Models, the initial model, lifting from the initial model</td></tr>
+  <tr><td><a href="agda/Vectors.html">Vectors</a></td><td>§3.1</td>
+      <td>Scan on vectors; lemmas about scans of vectors over a monoid used in §5</td></tr>
+  <tr><td><a href="agda/Combinators.html">Combinators</a></td><td>§3.2–3.4</td>
+      <td>Array combinators and the generalised scan</td></tr>
+  <tr><td><a href="agda/Reshaping.html">Reshaping</a></td><td>§4</td>
+      <td>Reshapes, their properties in the initial model, and their lifting</td></tr>
+  <tr><td><a href="agda/Stability.html">Stability</a></td><td>§3.5, §5</td>
+      <td>The initial scan, correctness of scan in all models, and reshape independence of scan</td></tr>
+  <tr><td><a href="agda/StabilityNoRewrite.html">StabilityNoRewrite</a></td><td>§3.5, §5</td>
+      <td>The same results without rewrite rules</td></tr>
+  <tr><td><a href="agda/Performance.html">Performance</a></td><td>§6</td>
+      <td>Effectful scan, left and right nesting, cost model</td></tr>
+</table>
+<p>To check the code, use Agda 2.8.0 with version 2.3 of the Agda standard
+library, and run <code>agda Everything.agda</code> in the <code>agda/</code>
+directory of the sources.</p>
+
+<h2>Citation</h2>
+<pre>@article{sinkarovs-scholz-2026,
+  author  = {{\v{S}}inkarovs, Artjoms and Scholz, Sven-Bodo},
+  title   = {Rank polymorphism at work},
+  journal = {Journal of Functional Programming},
+  volume  = {36},
+  articleno = {20},
+  year    = {2026},
+  doi     = {10.46298/jfp.17992}
+}</pre>
+
+</body>
+</html>

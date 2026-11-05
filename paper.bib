@@ -1,0 +1,747 @@
+@PHDTHESIS{ Mullin88,
+  AUTHOR   = {L.M. Restifo Mullin},
+  EMAIL    = {},
+  TITLE    = {{A} {M}athematics of {A}rrays},
+  SCHOOL   = {Syracuse University},
+  ADDRESS  = {},
+  YEAR     = 1988,
+  NOTE     = {},
+  FTP      = {},
+  KEYWORDS = {},
+  CONTENTS = {Very formal description/definition of the psi-calculus.} ,
+  TOPICS   = {Dense Arrays,PSI-Calculus}
+}
+
+@article{More73, author = {More, Trenchard}, title = {Axioms and theorems for a theory of arrays}, year = {1973}, issue_date = {March 1973}, publisher = {IBM Corp.}, address = {USA}, volume = {17}, number = {2}, issn = {0018-8646}, url = {https://doi.org/10.1147/rd.172.0135}, doi = {10.1147/rd.172.0135}, abstract = {Array theory combines APL with set theory, transfinite arithmetic, and operationally transformed functions to produce an axiomatic theory in which the theorems hold for all arrays having any finite number of axes of arbitrary countable ordinal lengths. The items of an array are again arrays. The treatment of ordinal numbers and letters is similar to Quine's treatment of individuals in set theory. The theory is developed first as a theory of lists.This paper relates the theory to the eight axioms of Zermelo-Fraenkel set theory, describes the structure of arrays, interprets empty arrays in terms of vector spaces, presents a system of axioms for certain properties of operations related to the APL function of reshaping, deduces a few hundred theorems and corollaries, develops an algebra for determining the behavior of operations applied to empty arrays, begins the axiomatic development of a replacement operator, and provides an informal account of unions, Cartesian products, Cartesian arrays, and outer, positional, separation, and reduction transforms.}, journal = {IBM J. Res. Dev.}, month = mar, pages = {135--175}, numpages = {41} }
+
+
+@book{Iverson:1962:APL,
+ author = {Iverson, Kenneth E.},
+ title = {A Programming Language},
+ year = {1962},
+ isbn = {0471430145},
+ publisher = {John Wiley \& Sons, Inc.},
+ address = {New York, NY, USA},
+}
+
+@phdthesis{henriksen:phdthesis,
+  author       = {Troels Henriksen},
+  title        = {Design and Implementation of the Futhark Programming Language},
+  school       = {University of Copenhagen},
+  year         = 2017,
+  address      = {Copenhagen, Denmark},
+  month        = nov,
+}
+
+@TECHREPORT{GEBlelloch:prefixsums,
+AUTHOR="Guy E. Blelloch",
+TITLE="Prefix Sums and Their Applications",
+INSTITUTION="Carnegie Mellon University",
+NUMBER="CMU-CS-90-190",
+address = {USA},
+YEAR="1990"}
+
+@article{Elliott:scan,
+author = {Elliott, Conal},
+title = {Generic Functional Parallel Algorithms: Scan and {FFT}},
+year = {2017},
+issue_date = {September 2017},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {1},
+number = {ICFP},
+url = {https://doi.org/10.1145/3110251},
+doi = {10.1145/3110251},
+journal = {Proc. ACM Program. Lang.},
+month = {aug},
+articleno = {7},
+numpages = {25},
+keywords = {generic programming, fast Fourier transform, parallel prefix computation}
+}
+
+@techreport{MPI,
+author = {Forum, Message Passing Interface},
+title = {MPI: A Message-Passing Interface Standard},
+year = {1994},
+institution = {University of Tennessee},
+address = {USA}
+}
+
+    
+@techreport{NESL,
+author = {Blelloch, Guy E.},
+title = {NESL: A Nested Data-Parallel Language},
+year = {1992},
+institution = {Carnegie Mellon University},
+number = {CMU-CS-92-103},
+address = {USA}
+}
+
+@article{psi-calc,
+author = {Mullin, L.M.R. and Jenkins, M.A.},
+title = {Effective data parallel computation using the Psi calculus},
+journal = {Concurrency: Practice and Experience},
+volume = {8},
+number = {7},
+pages = {499-515},
+year = {1996}
+}
+@Article{sac-mt,
+  author   = {Clemens Grelck},
+  title    = {Shared Memory Multiprocessor Support for Functional Array Processing in Sac},
+  journal  = {Journal of Functional Programming},
+  year     = {2005},
+  volume   = {15},
+  number   = {3},
+  pages    = {353--401},
+  category = {design, par},
+  contents = {Canonical reference for SAC multithreading},
+  doi      = {10.1017/S0956796805005538},
+  topics   = {SAC},
+}
+@article{sac,
+ author = {Scholz, Sven-Bodo},
+ title = {Single Assignment {C}: Efficient Support for High-level Array Operations in a Functional Setting},
+ journal = {J. Funct. Program.},
+ issue_date = {November 2003},
+ volume = {13},
+ number = {6},
+ month = nov,
+ year = {2003},
+ issn = {0956-7968},
+ pages = {1005--1059},
+ numpages = {55},
+ doi = {10.1017/S0956796802004458},
+ acmid = {967501},
+ publisher = {Cambridge University Press},
+ address = {New York, NY, USA},
+} 
+
+@inproceedings{SchoShinIFL19,
+author = {Scholz, Sven-Bodo and \v{S}inkarovs, Artjoms},
+title = {Tensor Comprehensions in SaC},
+year = {2019},
+isbn = {9781450375627},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3412932.3412947},
+doi = {10.1145/3412932.3412947},
+abstract = {We propose a new notation for data parallel operators on multi-dimensional arrays named tensor comprehensions. This notation combines the basic principle of array-comprehensions with syntactical shortcuts very close to those found in the so-called Tensor Notations used in Physics and Mathematics. As a result, complex operators with rich semantics can be defined concisely. The key to this conciseness lies in the ability to define shape-polymorphic operations combined with the ability to infer array shapes from the immediate context. The paper provides a definition of the proposed notation, a formal shape inference process, as well as a set of re-write rules that translates tensor comprehensions as a zero-cost syntactic sugar into standard SaC expressions.},
+booktitle = {Proceedings of the 31st Symposium on Implementation and Application of Functional Languages},
+articleno = {15},
+numpages = {13},
+location = {Singapore, Singapore},
+series = {IFL '19} }
+
+@InProceedings{IFLmadrid,
+  author     = {Clemens Grelck and Sven-Bodo Scholz},
+  title      = {Axis Control in Sac},
+  booktitle  = {Implementation of Functional Languages, 14th International Workshop (IFL'02), Madrid, Spain, Revised Selected Papers},
+  year       = {2003},
+  editor     = {Ricardo Pe{\~n}a and Thomas Arts},
+  volume     = {2670},
+  series     = {Lecture Notes in Computer Science},
+  pages      = {182--198},
+  publisher  = {Springer},
+  abstract   = {High-level array processing is characterized by the composi-tion of generic operations, which treat all array elements in a uniform way. This paper proposes a mechanism that allows programmers to direct effects of such array operations to non-scalar subarrays of argument ar-rays without sacrificing the high-level programming approach. A versatile notation for axis control is presented, and it is shown how the additional language constructs can be transformed into regular SaC code. Further-more, an optimization technique is introduced which achieves the same runtime performance regardless of whether code is written using the new notation or in a substantially less elegant style employing conventional language features.},
+  category   = {core, opt},
+  doi        = {10.1.1.540.8938},
+  pubaddress = {Berlin, Heidelberg, Germany},
+  sourceurl  = {http://www.isp.mu-luebeck.de/~grelck/publications/axis-control-madrid-02.ps.gz},
+  topics     = {SAC},
+}
+
+@misc{jlang,
+    title= {Learning {J}. {A}n Introduction to the {J} Programming Language},
+    author= {Roger Stokes},
+    year= {2015},
+    howpublished= {\url{http://www.jsoftware.com/help/learning/contents.htm}},
+    note = {[Accessed 2023/02]}
+}
+
+@InProceedings{sac-folding,
+  author     = {Sven-Bodo Scholz},
+  title      = {With-loop-folding in Sac --- Condensing Consecutive Array Operations},
+  booktitle  = {Implementation of Functional Languages, 9th International Workshop (IFL'97), St. Andrews, UK, Selected Papers},
+  year       = {1998},
+  editor     = {Chris Clack and Tony Davie and Kevin Hammond},
+  volume     = {1467},
+  series     = {Lecture Notes in Computer Science},
+  pages      = {72--92},
+  publisher  = {Springer},
+  category   = {core,design,opt},
+  doi        = {10.1007/BFb0055425},
+  isbn       = {978-3-540-64849-9},
+  pubaddress = {Berlin, Heidelberg, Germany},
+  topics     = {SAC,Avoiding Temporaries,Implementation of Arrays},
+}
+@InProceedings{wls-paper,
+author="Grelck, Clemens
+and Scholz, Sven-Bodo
+and Trojahner, Kai",
+editor="Trinder, Phil
+and Michaelson, Greg J.
+and Pe{\~{n}}a, Ricardo",
+title="With-Loop Scalarization -- Merging Nested Array Operations",
+booktitle="Implementation of Functional Languages",
+year="2005",
+publisher="Springer Berlin Heidelberg",
+address="Berlin, Heidelberg",
+doi = {10.1007/978-3-540-27861-0_8},
+pages="118--134",
+abstract="Construction of complex array operations by composition of more basic ones allows for abstract and concise specifications of algorithms. Unfortunately, na{\"i}ve compilation of such specifications leads to creation of many temporary arrays at runtime and, consequently, to poor performance characteristics.",
+isbn="978-3-540-27861-0"
+}
+
+@inproceedings{array-scan,
+author = {\v{S}inkarovs, Artjoms and Scholz, Sven-Bodo},
+title = {Parallel Scan as a Multidimensional Array Problem},
+year = {2022},
+isbn = {9781450392693},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3520306.3534500},
+doi = {10.1145/3520306.3534500},
+booktitle = {Proceedings of the 8th ACM SIGPLAN International Workshop on Libraries, Languages and Compilers for Array Programming},
+pages = {1--11},
+numpages = {11},
+keywords = {array languages, parallelism, functional programming, rank polymorphism, prefix sum, algorithms},
+location = {San Diego, CA, USA},
+series = {ARRAY 2022}
+}
+
+
+@article{claessen_1999,
+  title={A poor man's concurrency monad},
+  volume={9},
+  DOI={10.1017/S0956796899003342},
+  number={3},
+  journal={Journal of Functional Programming},
+  publisher={Cambridge University Press},
+  author={Claessen, Koen},
+  year={1999},
+  pages={313--323}
+}
+
+@techreport{hudak_1993,
+  title={Implicit and Explicit Parallel Programming in Haskel},
+  author={Jones, Mark P. and Hudak, Paul},
+  year={1993},
+  institution={Yale University},
+  number={t YALEU/DCS/RR-982}
+}
+
+@inproceedings{Gibbons:APLicative,
+author = {Gibbons, Jeremy},
+title = {{APL}icative Programming with Naperian Functors (Extended Abstract)},
+year = {2016},
+isbn = {9781450344357},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/2976022.2976023},
+doi = {10.1145/2976022.2976023},
+abstract = {A lot of the expressive power of array-oriented languages such as Iverson's APL and J comes from their implicit lifting of scalar operations to act on higher-ranked data, for example to add a value to each element of a vector, or to add two compatible matrices pointwise. But it is a shape error to attempt to combine arguments of incompatible shape, such as a 3-vector with a 4-vector. APL and J are dynamically typed, so such shape errors are caught only at run-time. Recent work by Slepak et al. develops a custom static type system for an array-oriented language. We show here that such a custom language design is unnecessary; the requisite compatibility checks can already be captured in modern expressive type systems, as found for example in Haskell, and moreover, generative type-driven programming can use that static type information constructively to automatically induce the appropriate liftings. We show also that the structure of multi-dimensional data is inherently a matter of Naperian applicative functors - lax monoidal functors, with strength, commutative up to isomorphism under composition.},
+booktitle = {Proceedings of the 1st International Workshop on Type-Driven Development},
+pages = {13--14},
+numpages = {2},
+keywords = {APL, Naperian functor, applicative functor, array, rank polymorphism},
+location = {Nara, Japan},
+series = {TyDe 2016}
+}
+
+
+
+@InProceedings{Hinze:ScanAlgebra,
+author="Hinze, Ralf",
+editor="Kozen, Dexter",
+title="An Algebra of Scans",
+booktitle="Mathematics of Program Construction",
+year="2004",
+publisher="Springer Berlin Heidelberg",
+address="Berlin, Heidelberg",
+pages="186--210",
+isbn="978-3-540-27764-4"
+}
+
+
+@misc{XXX,
+   author = {XXX},
+   howpublished = {{{THIS IS A STUB REFERENCE, PLEASE FIX ME!}.} \url{http://fix.the.reference}}
+}
+
+
+@article{ATL,
+author = {Liu, Amanda and Bernstein, Gilbert Louis and Chlipala, Adam and Ragan-Kelley, Jonathan},
+title = {Verified tensor-program optimization via high-level scheduling rewrites},
+year = {2022},
+issue_date = {January 2022},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {6},
+number = {POPL},
+url = {https://doi.org/10.1145/3498717},
+doi = {10.1145/3498717},
+journal = {Proc. ACM Program. Lang.},
+month = jan,
+articleno = {55},
+numpages = {28},
+keywords = {proof assistants, optimization, formal verification, array programming}
+}
+
+@InProceedings{Qube,
+author="Trojahner, Kai
+and Grelck, Clemens",
+editor="Scholz, Sven-Bodo
+and Chitil, Olaf",
+title="Descriptor-Free Representation of Arrays with Dependent Types",
+booktitle="Implementation and Application of Functional Languages",
+year="2011",
+publisher="Springer Berlin Heidelberg",
+address="Berlin, Heidelberg",
+pages="100--117",
+numpages={18},
+isbn="978-3-642-24452-0"
+}
+
+@InProceedings{Remora,
+author="Slepak, Justin
+and Shivers, Olin
+and Manolios, Panagiotis",
+editor="Shao, Zhong",
+title="An Array-Oriented Language with Static Rank Polymorphism",
+booktitle="Programming Languages and Systems",
+year="2014",
+publisher="Springer Berlin Heidelberg",
+address="Berlin, Heidelberg",
+pages="27--46",
+numpages={20},
+isbn="978-3-642-54833-8"
+}
+
+@inproceedings{2020-msfp,
+  author    = {Artjoms {\v{S}}inkarovs},
+  editor    = {Max S. New and
+               Sam Lindley},
+  title     = {Multi-dimensional Arrays with Levels},
+  booktitle = {Proceedings Eighth Workshop on Mathematically Structured Functional
+               Programming, MSFP@ETAPS 2020, Dublin, Ireland, 25th April 2020},
+  series    = {{EPTCS}},
+  volume    = {317},
+  pages     = {57--71},
+  numpages  = {15},
+  year      = {2020},
+  url       = {https://doi.org/10.4204/EPTCS.317.4},
+  doi       = {10.4204/EPTCS.317.4},
+  timestamp = {Fri, 08 May 2020 16:00:57 +0200},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2005-00198.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{abs-2105-10819,
+  author       = {Artjoms \v{S}inkarovs and
+                  Jesper Cockx},
+  title        = {Choosing is Losing: How to combine the benefits of shallow and deep
+                  embeddings through reflection},
+  journal      = {CoRR},
+  volume       = {abs/2105.10819},
+  year         = {2021},
+  url          = {https://arxiv.org/abs/2105.10819},
+  eprinttype    = {arXiv},
+  eprint       = {2105.10819},
+  timestamp    = {Mon, 31 May 2021 16:16:57 +0200},
+  biburl       = {https://dblp.org/rec/journals/corr/abs-2105-10819.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{10.1145/3520306.3534500,
+    author = {\v{S}inkarovs, Artjoms and Scholz, Sven-Bodo},
+    title = {Parallel Scan as a Multidimensional Array Problem},
+    year = {2022},
+    isbn = {9781450392693},
+    publisher = {Association for Computing Machinery},
+    address = {New York, NY, USA},
+    url = {https://doi.org/10.1145/3520306.3534500},
+    doi = {10.1145/3520306.3534500},
+    abstract = {For many algorithms, it is challenging to identify a suitable parallel version, as the design space is typically very large. In this paper we demonstrate how rank-polymorphic array languages can be used as a tool to explore such design spaces through concise high-level specifications. If input data can be organised into a multi-dimensional array, and the algorithm can be stated as a recursive traversal over sub-arrays, array languages offer a lot of expressive power. The reason for this is that array shapes can be used to guide recursive traversals. Conciseness of specifications comes from array reshapes that move the desired elements into canonical hyperplanes. As a case study, we discuss several variants of implementing prefix sums (also known as scans) in SaC. We demonstrate how small code adjustments suffice to change the concurrency pattern exposed to the compiler. It turns out that variability that is typically achieved by generic inductive data types such as binary trees is a special case of what is offered by the array paradigm.},
+    booktitle = {Proceedings of the 8th ACM SIGPLAN International Workshop on Libraries, Languages and Compilers for Array Programming},
+    pages = {1--11},
+    numpages = {11},
+    keywords = {functional programming, rank polymorphism, algorithms, array languages, parallelism, prefix sum},
+    location = {San Diego, CA, USA},
+    series = {ARRAY 2022}
+}
+
+@article{containers,
+title={Indexed containers},
+volume={25},
+DOI={10.1017/S095679681500009X},
+journal={Journal of Functional Programming},
+author={Altenkirch, Thorsten and Ghani, Neil and Hancock, Peter and McBride, Conor and Morris, Peter},
+year={2015},
+pages={e5}
+}
+
+@article{10.1145/3386319,
+author = {Hui, Roger K. W. and Kromberg, Morten J.},
+title = {APL since 1978},
+year = {2020},
+issue_date = {June 2020},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {4},
+number = {HOPL},
+url = {https://doi.org/10.1145/3386319},
+doi = {10.1145/3386319},
+abstract = {The Evolution of APL, the HOPL I paper by Falkoff and Iverson on APL, recounted the fundamental design principles which shaped the implementation of the APL language in 1966, and the early uses and other influences which shaped its first decade of enhancements.In the 40 years that have elapsed since HOPL I, several dozen APL implementations have come and gone. In the first decade or two, interpreters were typically born and buried along with the hardware or operating system that they were created for. More recently, the use of C as an implementation language provided APL interpreters with greater longevity and portability.APL started its life on IBM mainframes which were time-shared by multiple users. As the demand for computing resources grew and costs dropped, APL first moved in-house to mainframes, then to mini- and micro-computers. Today, APL runs on PCs and tablets, Apples and Raspberry Pis, smartphones and watches.The operating systems, and the software application platforms that APL runs on, have evolved beyond recognition. Tools like database systems have taken over many of the tasks that were initially implemented in APL or provided by the APL system, and new capabilities like parallel hardware have also changed the focus of design and implementation efforts through the years.The first wave of significant language enhancements occurred shortly after HOPL I, resulting in so-called second-generation APL systems. The most important feature of the second generation is the addition of general arrays—in which any item of an array can be another array—and a number of new functions and operators aligned with, if not always motivated by, the new data structures.The majority of implementations followed IBM’s path with APL2 “floating” arrays; others aligned themselves with SHARP APL and “grounded” arrays. While the APL2 style of APL interpreters came to dominate the mainstream of the APL community, two new cousins of APL descended from the SHARP APL family tree: J (created by Iverson and Hui) and k (created by Arthur Whitney).We attempt to follow a reasonable number of threads through the last 40 years, to identify the most important factors that have shaped the evolution of APL. We will discuss the details of what we believe are the most significant language features that made it through the occasionally unnatural selection imposed by the loss of habitats that disappeared with hardware, software platforms, and business models.The history of APL now spans six decades. It is still the case, as Falkoff and Iverson remarked at the end of the HOPL I paper, that:Although this is not the place to discuss the future, it should be remarked that the evolution of APL is far from finished.},
+journal = {Proc. ACM Program. Lang.},
+month = jun,
+articleno = {69},
+numpages = {108},
+keywords = {APL, array programming, executable mathematical notation, functional programming, higher-order functions, programming languages}
+}
+
+
+@article{10.1145/1283920.1283935,
+author = {Iverson, Kenneth E.},
+title = {Notation as a Tool of Thought},
+journal = {Commun. ACM},
+volume = {23},
+number = {8},
+pages = {444--465},
+year = {1980},
+month = aug,
+publisher = {Association for Computing Machinery},
+doi = {10.1145/358896.358899},
+url = {https://doi.org/10.1145/358896.358899},
+note = {1979 ACM Turing Award Lecture}
+}
+
+      
+
+@Manual{agda-2-8-0,
+  title = {Agda 2.8.0 documentation},
+  author = {{Agda Development Team}},
+  year = 2026,
+  url = "https://agda.readthedocs.io/en/v2.8.0/",
+  note = {Accessed [2026/10/31]},
+}
+
+@Manual{agda-stdlib-2-3,
+  title = {The {A}gda standard library, version 2.3},
+  author = {{The Agda Community}},
+  year = 2026,
+  url = "https://github.com/agda/agda-stdlib",
+  note = {Accessed [2026/10/31]},
+}
+
+@misc{paper-src,
+    author = {{\v{S}}inkarovs, Artjoms and Scholz, Sven-Bodo},
+    title = {Rank polymorphism at work: sources and {A}gda code},
+    url = {https://rank-polymorphism.github.io/scan-paper/},
+    year = {2026}
+}
+
+@article{MCBRIDE_MCKINNA_2004,
+  title={The view from the left},
+  volume={14},
+  DOI={10.1017/S0956796803004829},
+  number={1},
+  journal={Journal of Functional Programming},
+  author={McBride, Conor and McKinna, James},
+  year={2004},
+  pages={69--111}
+}
+
+@article{MCBRIDE_PATERSON_2008,
+  title={Applicative programming with effects},
+  volume={18},
+  DOI={10.1017/S0956796807006326},
+  number={1},
+  journal={Journal of Functional Programming},
+  author={McBride, Conor and Paterson, Ross},
+  year={2008},
+  pages={1--13}
+} 
+
+
+
+@article{SWIERSTRA_2022,
+  title={A well-known representation of monoids and its application to the function ``vector reverse''},
+  volume={32},
+  DOI={10.1017/S0956796822000065},
+  journal={Journal of Functional Programming},
+  author={Swierstra, Wouter},
+  year={2022},
+  pages={e10}
+} 
+
+@inproceedings{hereditary,
+author = {Keller, Chantal and Altenkirch, Thorsten},
+title = {Hereditary substitutions for simple types, formalized},
+year = {2010},
+isbn = {9781450302555},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/1863597.1863601},
+doi = {10.1145/1863597.1863601},
+abstract = {We analyze a normalization function for the simply typed λ-calculus based on hereditary substitutions, a technique developed by Pfenning et al. The normalizer is implemented in Agda, a total language where all programs terminate. It requires no termination proof since it is structurally recursive which is recognized by Agda's termination checker. Using Agda as an interactive theorem prover we establish that our normalization function precisely identifies Βη-equivalent terms and hence can be used to decide Βη-equality. An interesting feature of this approach is that it is clear from the construction that Βη-equality is primitive recursive.},
+booktitle = {Proceedings of the Third ACM SIGPLAN Workshop on Mathematically Structured Functional Programming},
+pages = {3--10},
+numpages = {8},
+keywords = {decidability of Βη-equality, hereditary substitutions, normalizer, type theory},
+location = {Baltimore, Maryland, USA},
+series = {MSFP '10}
+}
+
+
+@inproceedings{monads,
+author = {Wadler, Philip},
+title = {Monads for Functional Programming},
+year = {1995},
+isbn = {3540594515},
+publisher = {Springer-Verlag},
+address = {Berlin, Heidelberg},
+booktitle = {Advanced Functional Programming, First International Spring School on Advanced Functional Programming Techniques-Tutorial Text},
+pages = {24--52},
+numpages = {29}
+}
+
+@inproceedings{reynolds1983types,
+  title={Types, abstraction and parametric polymorphism},
+  author={Reynolds, John C},
+  booktitle={Information Processing 83, Proceedings of the IFIP 9th World Computer Congress},
+  editor={Mason, R. E. A.},
+  publisher={North-Holland},
+  pages={513--523},
+  year={1983}
+}
+
+@InProceedings{10.1007/3-540-36576-1_2,
+author="Abbott, Michael
+and Altenkirch, Thorsten
+and Ghani, Neil",
+editor="Gordon, Andrew D.",
+title="Categories of Containers",
+booktitle="Foundations of Software Science and Computation Structures",
+year="2003",
+publisher="Springer Berlin Heidelberg",
+address="Berlin, Heidelberg",
+pages="23--38",
+abstract="We introduce the notion of containers as a mathematical formalisation of the idea that many important datatypes consist of templates where data is stored. We show that containers have good closure properties under a variety of constructions including the formation of initial algebras and final coalgebras. We also show that containers include strictly positive types and shapely types but that there are containers which do not correspond to either of these. Further, we derive a representation result classifying the nature of polymorphic functions between containers. We finish this paper with an application to the theory of shapely types and refer to a forthcoming paper which applies this theory to differentiable types.",
+isbn="978-3-540-36576-1"
+}
+
+@article{sinkarovs_2020,
+   title={Multi-dimensional Arrays with Levels},
+   volume={317},
+   ISSN={2075-2180},
+   url={http://dx.doi.org/10.4204/EPTCS.317.4},
+   DOI={10.4204/eptcs.317.4},
+   journal={Electronic Proceedings in Theoretical Computer Science},
+   publisher={Open Publishing Association},
+   author={\v{S}inkarovs, Artjoms},
+   year={2020},
+   month=may, pages={57--71} }
+
+@article{ABBOTT20053,
+title = {Containers: Constructing strictly positive types},
+journal = {Theoretical Computer Science},
+volume = {342},
+number = {1},
+pages = {3-27},
+year = {2005},
+note = {Applied Semantics: Selected Topics},
+issn = {0304-3975},
+doi = {10.1016/j.tcs.2005.06.002},
+author = {Michael Abbott and Thorsten Altenkirch and Neil Ghani},
+keywords = {Type theory, Category theory, Container functors, W-Types, Induction, Coinduction, Initial algebras, Final coalgebras},
+abstract = {We introduce the notion of a Martin-Löf category—a locally cartesian closed category with disjoint coproducts and initial algebras of container functors (the categorical analogue of W-types)—and then establish that nested strictly positive inductive and coinductive types, which we call strictly positive types, exist in any Martin-Löf category. Central to our development are the notions of containers and container functors. These provide a new conceptual analysis of data structures and polymorphic functions by exploiting dependent type theory as a convenient way to define constructions in Martin-Löf categories. We also show that morphisms between containers can be full and faithfully interpreted as polymorphic functions (i.e.natural transformations) and that, in the presence of W-types, all strictly positive types (including nested inductive and coinductive types) give rise to containers.}
+}
+
+@InCollection{Castellan2021,
+author="Castellan, Simon
+and Clairambault, Pierre
+and Dybjer, Peter",
+editor="Casadio, Claudia
+and Scott, Philip J.",
+title="Categories with Families: Unityped, Simply Typed, and Dependently Typed",
+bookTitle="Joachim Lambek: The Interplay of Mathematics, Logic, and Linguistics",
+year="2021",
+publisher="Springer International Publishing",
+address="Cham",
+pages="135--180",
+abstract="We show how the categorical logic of the untyped, simply typed and dependently typed lambda calculus can be structured around the notion of category with families (cwf). To this end we introduce subcategories of simply typed cwfs (scwfs), where types do not depend on variables, and unityped cwfs (ucwfs), where there is only one type. We prove several equivalence and biequivalence theorems between cwf-based notions and basic notions of categorical logic, such as cartesian operads, Lawvere theories, categories with finite products and limits, cartesian closed categories, and locally cartesian closed categories. Some of these theorems depend on the restrictions of contextuality (in the sense of Cartmell) or democracy (in the sense of Clairambault and Dybjer). Some theorems are equivalences between notions with strict preservation of chosen structure. Others are biequivalences involving notions without chosen structure, and where properties are (necessarily) only preserved up to isomorphism. The cwf-based notions play the role of an abstract syntax of formal systems, and we discuss various constructions of initial ucwfs, scwfs, and cwfs with extra structure. As a corollary of our results we show that equality in the free locally cartesian closed category is undecidable.",
+isbn="978-3-030-66545-6",
+doi="10.1007/978-3-030-66545-6_5",
+url="https://doi.org/10.1007/978-3-030-66545-6_5"
+}
+
+@InProceedings{altenkirch_et_al:LIPIcs.TYPES.2022.10,
+  author ={Altenkirch, Thorsten and Kaposi, Ambrus and \v{S}inkarovs, Artjoms and V\'{e}gh, Tam\'{a}s},
+  title ={{The M\"{u}nchhausen Method in Type Theory}},
+  booktitle ={28th International Conference on Types for Proofs and Programs (TYPES 2022)},
+  pages ={10:1--10:20},
+  series ={Leibniz International Proceedings in Informatics (LIPIcs)},
+  ISBN ={978-3-95977-285-3},
+  ISSN ={1868-8969},
+  year ={2023},
+  volume ={269},
+  editor ={Kesner, Delia and P\'{e}drot, Pierre-Marie},
+  publisher ={Schloss Dagstuhl -- Leibniz-Zentrum f{\"u}r Informatik},
+  address ={Dagstuhl, Germany},
+  URL ={https://drops.dagstuhl.de/opus/volltexte/2023/18453},
+  URN ={urn:nbn:de:0030-drops-184534},
+  doi ={10.4230/LIPIcs.TYPES.2022.10},
+  annote ={Keywords: type theory, proof assistants, very dependent types}
+}
+
+@inproceedings{10.1145/1159803.1159838,
+author = {Vytiniotis, Dimitrios and Weirich, Stephanie and Peyton Jones, Simon},
+title = {Boxy types: inference for higher-rank types and impredicativity},
+year = {2006},
+isbn = {1595933093},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/1159803.1159838},
+doi = {10.1145/1159803.1159838},
+abstract = {Languages with rich type systems are beginning to employ a blend of type inference and type checking, so that the type inference engine is guided by programmer-supplied type annotations. In this paper we show, for the first time, how to combine the virtues of two well-established ideas: unification-based inference, and bidi-rectional propagation of type annotations. The result is a type system that conservatively extends Hindley-Milner, and yet supports both higher-rank types and impredicativity.},
+booktitle = {Proceedings of the Eleventh ACM SIGPLAN International Conference on Functional Programming},
+pages = {251--262},
+numpages = {12},
+keywords = {type inference, impredicativity, higher-rank types},
+location = {Portland, Oregon, USA},
+series = {ICFP '06}
+}
+@inproceedings{MCGN15,
+    author      = {McDonell, Trevor L. and Chakravarty, Manuel M T and Grover, Vinod and Newton, Ryan R},
+    title       = {{Type-safe Runtime Code Generation: Accelerate to LLVM}},
+    booktitle   = {Haskell '15: The 8th ACM SIGPLAN Symposium on Haskell},
+    year        = {2015},
+    pages       = {201--212},
+    publisher   = {ACM},
+    month       = sep
+}
+
+@article{nial,
+author = {Smillie, K. W.},
+title = {Array theory and the {Nial} programming language},
+year = {1988},
+issue_date = {Sep 1988},
+publisher = {BIT Computer Science and Numerical Mathematics},
+address = {USA},
+volume = {28},
+number = {3},
+issn = {0006-3835},
+url = {https://doi.org/10.1007/BF01941127},
+doi = {10.1007/BF01941127},
+abstract = {The Nested Interactive Array Language Nial is based on a mathematical theory of hierarchical rectangular arrays known as array theory. This paper gives a brief introduction to array theory and Nial and then discusses the main characteristics of the Nial language, its current implementation and some of its applications.},
+journal = {BIT},
+month = sep,
+pages = {439--449},
+numpages = {11},
+keywords = {J.0, E.1, D.3.2}
+}
+
+
+@book{10.5555/280586,
+author = {Okasaki, Chris},
+title = {Purely functional data structures},
+year = {1998},
+isbn = {0521631246},
+publisher = {Cambridge University Press},
+address = {USA}
+}
+
+@incollection{SB_1958-1960__5__369_0,
+     author = {Grothendieck, Alexander},
+     title = {Technique de descente et th\'eor\`emes d'existence en g\'eom\'etrie alg\'ebriques. {II.} {Le} th\'eor\`eme d'existence en th\'eorie formelle des modules},
+     booktitle = {S\'eminaire Bourbaki : ann\'ees 1958/59 - 1959/60, expos\'es 169-204},
+     series = {Ast\'erisque},
+     note = {Expos\'e no. 195},
+     pages = {369--390},
+     publisher = {Soci\'et\'e math\'ematique de France},
+     number = {5},
+     year = {1960},
+     mrnumber = {1603480},
+     zbl = {0234.14007},
+     language = {fr},
+     url = {https://www.numdam.org/item/SB_1958-1960__5__369_0/}
+}
+
+@inproceedings{10.1145/3609024.3609410,
+author = {\v{S}inkarovs, Artjoms and Koopman, Thomas and Scholz, Sven-Bodo},
+title = {Rank-Polymorphism for Shape-Guided Blocking},
+year = {2023},
+isbn = {9798400702969},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3609024.3609410},
+doi = {10.1145/3609024.3609410},
+abstract = {Many numerical algorithms on matrices or tensors can be formulated in a blocking style which improves performance due to better cache locality. In imperative languages, blocking is achieved by introducing additional layers of loops in a nested fashion alongside with suitable adjustments in index computations. While this process is tedious and error-prone, it is also difficult to implement a generically blocked version that would support arbitrary levels of blocking. At the example of matrix multiply, this paper demonstrates how rank-polymorphic array languages enable the specification of such generically blocked algorithms in a simple, recursive form. The depth of the blocking as well as blocking factors can be encoded in the structure of array shapes. In turn, reshaping arrays makes it possible to switch between blocked and non-blocked arrays. Through rank-polymorphic array combinators, any specification of loop boundaries or explicit index computations can be avoided. Firstly, we propose a dependently-typed framework for rank-polymorphic arrays. We use it to demonstrate that all blocked algorithms can be naturally derived by induction on the argument shapes. Our framework guarantees lack of out-of-bound indexing, and we also prove that all the blocked versions compute the same results as the canonical algorithm. Secondly, we translate our specification to the array language SaC. Not only do we show that we achieve similar conciseness in the implementation, but we also observe good performance of the generated code. We achieve a 7\% improvement compared to the highly-optimised OpenBLAS library, and 3\% compared to Intel’s MKL library when running on a 32-core shared-memory system.},
+booktitle = {Proceedings of the 11th ACM SIGPLAN International Workshop on Functional High-Performance and Numerical Computing},
+pages = {1--14},
+numpages = {14},
+keywords = {Array Programming, Dependent Types, HPC, Matrix Multiply, Rank-Polymorphism},
+location = {Seattle, WA, USA},
+series = {FHPNC 2023}
+}
+
+@article{10.1145/3747524,
+author = {\v{S}inkarovs, Artjoms and Henriksen, Troels},
+title = {Correctness Meets Performance: From {Agda} to {Futhark}},
+year = {2025},
+issue_date = {August 2025},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {9},
+number = {ICFP},
+url = {https://doi.org/10.1145/3747524},
+doi = {10.1145/3747524},
+abstract = {In this paper we demonstrate a technique for developing high performance applications  with strong correctness guarantees. Using a theorem prover, we derive a high-level  specification of the application that includes correctness invariants of our choice.  After that, within the same theorem prover, we implement an extraction of the   specified application into a high-performance language of our choice. Concretely,  we are using Agda to specify a framework for automatic differentiation (reverse mode)  that is focused on index-safe tensors. This framework comes   with an optimiser for tensor expressions and the ability to translate these   expressions into Futhark. We specify a canonical convolutional neural network   within the proposed framework, compute the derivatives needed for the training   phase and then demonstrate that the generated code approaches the performance of TensorFlow  code when running on a GPU.},
+journal = {Proc. ACM Program. Lang.},
+month = aug,
+articleno = {255},
+numpages = {30},
+keywords = {Agda, Array Programming, Automatic Differentiation, Dependent Types, Futhark}
+}
+
+  
+@phdthesis{Yorgey2014,
+  author = {Brent Abraham Yorgey},
+  title  = {Combinatorial Species and Labelled Structures},
+  school = {University of Pennsylvania},
+  year   = {2014},
+  type   = {Ph.D. dissertation},
+  address = {Philadelphia, PA},
+  url    = {https://www.cis.upenn.edu/~sweirich/papers/yorgey-thesis.pdf}
+}
+
+@book{May1972,
+  author    = {May, J.~Peter},
+  title     = {The Geometry of Iterated Loop Spaces},
+  series    = {Lecture Notes in Mathematics},
+  volume    = {271},
+  publisher = {Springer},
+  address   = {Berlin, Heidelberg},
+  year      = {1972},
+  doi       = {10.1007/BFb0067491}
+}
+
+@inproceedings{10.1145/1863543.1863592,
+author = {Bernardy, Jean-Philippe and Jansson, Patrik and Paterson, Ross},
+title = {Parametricity and dependent types},
+year = {2010},
+isbn = {9781605587943},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/1863543.1863592},
+doi = {10.1145/1863543.1863592},
+abstract = {Reynolds' abstraction theorem shows how a typing judgement in System F can be translated into a relational statement (in second order predicate logic) about inhabitants of the type. We (in second order predicate logic) about inhabitants of the type. We obtain a similar result for a single lambda calculus (a pure type system), in which terms, types and their relations are expressed. Working within a single system dispenses with the need for an interpretation layer, allowing for an unusually simple presentation. While the unification puts some constraints on the type system (which we spell out), the result applies to many interesting cases, including dependently-typed ones.},
+booktitle = {Proceedings of the 15th ACM SIGPLAN International Conference on Functional Programming},
+pages = {345--356},
+numpages = {12},
+keywords = {abstraction theorem, free theorems, pure type system},
+location = {Baltimore, Maryland, USA},
+series = {ICFP '10}
+}
+

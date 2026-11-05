@@ -1,0 +1,56 @@
+\section{\label{sec:concl}Conclusions and future work}
+
+We dressed up rank polymorphism in dependent types, thereby obtaining a
+haute-couture collection of tools for constructing and formally reasoning about
+array-based algorithms.  This collection comprises: an \emph{array theory} that
+enables the definition of specifications without committing to any particular
+array implementation; the \emph{initial model} of the array theory that supplies
+recursion over array shapes; \emph{array combinators} defined as interfaces
+with fixed semantics, ensuring that efficient implementations can be
+instantiated for all models; and \emph{inductive reshapes} that make it
+possible to prove theorems concerning the stability of functions
+under reshapes.
+
+We have demonstrated that our specification of \texttt{scan} can be transformed
+into algorithms exhibiting differing runtime characteristics merely by
+selecting a shape for the input array.  The main theorem guarantees that
+applying \texttt{scan} to any reshaping of the input array that is admissible under
+\AD{Reshape} yields identical values.  We have shown how monads can be employed
+to model runtime properties such as sharing and parallelism of array
+expressions.  Coupled with the freedom to choose a runtime representation of
+arrays and to define efficient combinators for that representation, this
+approach mitigates guesswork when selecting the optimal shape for a given
+hardware architecture.  An additional benefit of the dependently-typed
+framework is that all computations are index-safe and all functions are
+provably terminating.
+
+By no means do we claim that the given array framework is complete for expressing
+every conceivable numerical computation.  Nevertheless, this work offers a
+perspective on handling collections that can be represented as containers
+possessing non-trivial shape structure.
+
+The notion of arrays can be generalised by extending shapes with new
+constructors such as addition, exponentiation, or perhaps even dependent sums
+or products. By doing so we obtain greater flexibility in grouping elements
+within arrays, although rank-polymorphic functions and reshapes become
+correspondingly more intricate. The language of reshapes is not immutable---it
+may be extended (\eg{} by permitting permutations) or restricted (\eg{} by
+forbidding flattening) according to the problem under consideration. The array
+combinators presented here remain universal provided that shapes include
+singleton and product constructors. Moreover, the theory can be readily
+expanded with additional array combinators without jeopardising the existing
+development.
+
+The present contribution constitutes a first step toward a wealth of promising
+future work.  Firstly, we aim to generate high-performance code from the
+proposed specifications.  While it is unlikely that Agda alone can produce code
+competitive with highly optimised low-level libraries, it is straightforward to
+encapsulate the array definitions within a small DSL and perform code
+generation, as we have done for convolutional neural
+networks~\citep{10.1145/3747524}.  Another substantial question concerns the
+translation of scan-like algorithms into in-place array updates as described
+in Blelloch's original
+paper~\citep{GEBlelloch:prefixsums}.  On a theoretical level, it would be
+interesting to investigate whether incorporating reshape equalities into shape
+definitions simplifies specifications; however, this would necessitate moving
+to more expressive type theories that support quotient types.

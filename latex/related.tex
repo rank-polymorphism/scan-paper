@@ -1,0 +1,225 @@
+\begin{code}[hide]%
+\>[0]\AgdaKeyword{open}\AgdaSpace{}%
+\AgdaKeyword{import}\AgdaSpace{}%
+\AgdaModule{Data.Product}\<%
+\\
+\>[0]\AgdaKeyword{open}\AgdaSpace{}%
+\AgdaKeyword{import}\AgdaSpace{}%
+\AgdaModule{Data.Fin}\<%
+\\
+\>[0]\AgdaKeyword{open}\AgdaSpace{}%
+\AgdaKeyword{import}\AgdaSpace{}%
+\AgdaModule{Data.Nat}\<%
+\end{code}
+
+\section{\label{sec:related}Related work}
+
+% Containers
+The array theory presented herein draws inspiration from earlier work on
+containers~\citep{containers}.  We restrict the shapes of containers to
+products of natural numbers, and our reshapes correspond to Cartesian
+morphisms~\citep{10.1007/3-540-36576-1_2}.  Containers prove extremely useful
+when modelling arrays.  On the one hand, an explicit notion of shapes and
+indices affords a straightforward representation of arrays in concrete memory ---
+we merely need to translate indices of a given shape into offsets.  On the
+other hand, because arrays are modelled as functions, reasoning about array
+expressions becomes simpler; we can frequently exploit properties such as
+map-fusion through normalisation.  Further developments of arrays as containers
+can be found in \citet{sinkarovs_2020}.  As this work deals with finite arrays,
+the theory of combinatorial species~\citep{Yorgey2014}---which are essentially
+finitary containers---is also relevant.  Moreover, since our shapes possess a
+monoidal structure, the theory of operads~\citep{May1972} can be employed to
+interpret the proposed arrays.
+
+% Examples of other examples that can be modeled in a similar style.
+Due to limited space we presented only a single running example that
+demonstrates the application of our technique.  Nevertheless, a comparable
+treatment of arrays has proved valuable in the following two scenarios.
+In \citet{10.1145/3609024.3609410}, we consider an algorithm for blocked matrix
+multiplication.  Much as with scan, the tree structure of array shapes enables
+the encoding of a blocking strategy for the input matrices.  We define a
+high-level algorithm for blocked matrix multiplication, prove its correctness,
+and use it as a guide to derive an implementation in the array language SaC
+that performs on par with state-of-the-art libraries such as OpenBLAS and MKL.
+In \citet{10.1145/3747524}, we employ a similar array framework to define
+convolutional neural networks using high-level array combinators.  We provide
+an automatic-differentiation facility in Agda together with a
+semantics-preserving optimiser and a code generator targeting Futhark for the
+language of array combinators.
+
+% Conal's work
+Many ideas that appear in \citet{Elliott:scan} resonate with the spirit of this
+paper.  \citeauthor{Elliott:scan} defines a language of (generic) functors
+comprising zero, one, and singleton, closed under sums, products and
+composition.  For a given algorithm such as scan, one then defines an instance
+of the algorithm for every case of that functor language.  Consequently, the
+chosen algorithm can be computed for data structures expressible as generic
+functors.  Containers are isomorphic~\citep{ABBOTT20053} to strictly positive
+functors, so all generic operations can be defined on containers as well.  The
+key differences in the present work are threefold:  
+%
+(i)  The dependently-typed framework permits reasoning about rank polymorphism
+--- knowledge of array shapes may be deferred until run-time --- whereas the
+decomposition into generic functors advocated by \citeauthor{Elliott:scan} must
+occur statically;  
+%
+(ii)  Here we abstract over array representation --- by selecting a model and
+combinators the algorithm is guaranteed to compute on the chosen representation
+--- whereas computation via generic functors proceeds by translation, leaving
+optimisation to the compiler and thereby introducing separate practical
+challenges;  
+%
+(iii)  Most importantly, we furnish a formal proof that isomorphic
+representations (as given by reshapes) yield identical results, whereas with
+generic functors one must manually ensure, for example, that scans over
+\texttt{Pair × Pair} and \texttt{Pair ∘ Pair} coincide.
+Finally, our use of monads provides precise numbers that can be taken
+into account when adapting specifications to a particular hardware
+model.
+
+% Array languages
+There exists a substantial body of array languages that support rank
+polymorphism to varying extents.  Early untyped languages such as
+APL~\citep{Iverson:1962:APL}, J~\citep{jlang}, and Nial~\citep{nial} provide
+run-time rank polymorphism without any type or conformance guarantees.  They
+offer a rich repertoire of rank-polymorphic array combinators and are valuable
+for rapid prototyping.  Within this tradition, Trenchard More initiated the
+development of array theories~\citep{More73} that focus on identifying
+universal equalities in the context of built-in rank-polymorphic combinators.
+This line of work culminated in Lenore Mullin's
+$\Psi$-calculus~\citep{Mullin88}, which is based on a universal abstraction of
+iteration spaces akin to the \AF{imap} operator from Section~\ref{sec:arrop}.
+
+Inspired by these ideas, many functional array languages strive to support rank
+polymorphism: SaC~\citep{sac}, Qube~\citep{Qube}, Accelerate~\citep{MCGN15},
+Jeremy Gibbons' Naperian Functors~\citep{Gibbons:APLicative},
+Remora~\citep{Remora}, and ATL~\citep{ATL}.  While languages such as SaC or
+Accelerate primarily target the generation of efficiently executable code, the
+others are chiefly concerned with providing static guarantees against
+out-of-bounds errors.  A fully generic setting in which ranks may only be known
+at run-time necessitates dependent types, as embodied by the array theory
+presented in this paper or by the type system of Qube.  When ranks are
+restricted to static (compile-time) values, many static guarantees can be
+obtained with a less expressive type system.  For instance,
+\citet{Gibbons:APLicative} offers a Haskell framework --- similar in spirit to
+our work --- for handling statically-ranked multidimensional arrays.
+Remora~\citep{Remora} proposes a novel type system (without full dependent
+types) for statically-ranked arrays, furnishing numerous APL-specific features
+such as shape lifting.  ATL~\citep{ATL} is a statically-ranked Coq-embedded
+language that provides safe static indexing.  In principle, all of the
+aforementioned languages could implement a static variant of the scan
+specification presented here.  SaC, for example,
+demonstrates~\citep{10.1145/3520306.3534500} the expressive power of rank
+polymorphism.  Nonetheless, reproducing our equivalence proof based on reshapes
+within those systems would likely be challenging.
+
+Futhark~\citep{henriksen:phdthesis} is a functional array language that
+prioritises parallel performance and type safety.  In contrast to the languages
+discussed above, it does not support rank polymorphism at all, but it does
+provide a built-in scan primitive.  Although convenient for users, this
+primitive often renders it difficult or impossible to control the run-time
+behaviour of a particular application.
+
+
+%\item Hinze Scan Algebra
+\citet{Hinze:ScanAlgebra} explores the compositional nature of
+the in-place algorithm introduced by \citet{GEBlelloch:prefixsums}.  It would be interesting to
+investigate whether a tidy translation exists between our specification and the
+one presented in that paper.
+
+%\item Extraction
+\citet{abs-2105-10819} demonstrate that specifications from a framework akin
+to the one presented here can be translated into high-performance languages.
+This technique, termed ``extraction'', leverages the reflection capabilities of
+the underlying dependently-typed language.  With a modest amount of effort,
+Agda specifications can be compiled into an array language of the user's
+choice.
+
+% \item CwFs
+Our encoding of arrays bears a strong resemblance to the encoding of type
+theories using Categories with Families (CwFs)~\citep{Castellan2021}.  This is
+unsurprising, since arrays are essentially functions: \AF{imap} behaves like
+$\lambda$, and \AF{\_[\_]} (selection) behaves like function application.
+Accordingly, the analogy proceeds as follows:
+\begin{code}[hide]%
+\>[0]\AgdaKeyword{postulate}\<%
+\\
+\>[0][@{}l@{\AgdaIndent{0}}]%
+\>[2]\AgdaPostulate{Ty}%
+\>[7]\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaPrimitive{Set}\<%
+\\
+\>[0]\AgdaKeyword{postulate}\<%
+\end{code}
+\begin{mathpar}
+\codeblock{\begin{code}%
+\>[0][@{}l@{\AgdaIndent{1}}]%
+\>[2]\AgdaPostulate{Con}%
+\>[7]\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaPrimitive{Set}\<%
+\\
+%
+\>[2]\AgdaPostulate{Sub}%
+\>[7]\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaPostulate{Con}\AgdaSpace{}%
+\AgdaSymbol{→}\AgdaSpace{}%
+\AgdaPostulate{Con}\AgdaSpace{}%
+\AgdaSymbol{→}%
+\>[22]\AgdaPrimitive{Set}\<%
+\\
+%
+\>[2]\AgdaPostulate{Tm}%
+\>[7]\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaPostulate{Con}\AgdaSpace{}%
+\AgdaSymbol{→}\AgdaSpace{}%
+\AgdaPostulate{Ty}\AgdaSpace{}%
+\AgdaSymbol{→}\AgdaSpace{}%
+\AgdaPrimitive{Set}\<%
+\end{code}}
+\and
+\codeblock{\begin{code}%
+%
+\>[2]\AgdaPostulate{Sh}%
+\>[11]\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaPrimitive{Set}\<%
+\\
+%
+\>[2]\AgdaPostulate{Reshape}%
+\>[11]\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaPostulate{Sh}\AgdaSpace{}%
+\AgdaSymbol{→}\AgdaSpace{}%
+\AgdaPostulate{Sh}\AgdaSpace{}%
+\AgdaSymbol{→}\AgdaSpace{}%
+\AgdaPrimitive{Set}\<%
+\\
+%
+\>[2]\AgdaPostulate{Ar}%
+\>[11]\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaPostulate{Sh}\AgdaSpace{}%
+\AgdaSymbol{→}\AgdaSpace{}%
+\AgdaPrimitive{Set}\AgdaSpace{}%
+\AgdaSymbol{→}\AgdaSpace{}%
+\AgdaPrimitive{Set}\<%
+\end{code}}
+\end{mathpar}
+
+Array shapes play the role of contexts, and array indices correspond to
+variables.  Reshapes act as substitutions that permit the remapping of
+variables/indices within an array expression.  Arrays correspond to terms,
+with one difference that is visible in the signatures above: terms inhabit a
+closed universe of object-level types \AD{Ty}, whereas array elements may be
+of any Agda type (\AD{Set}).  The crucial insight for both systems is that substitutions
+possess an inductive structure, allowing the action of a substitution (\ie{}
+reshaping) to be defined inductively as well.
+
+In a sense, the proposed array theory constitutes a rudimentary type theory,
+wherein the only types that variables may assume in a context (shape) are of
+the form \AD{Fin}\,\AB{n} for some natural number \AB{n}.  It would be
+intriguing to develop a closed array theory in which indices and arrays inhabit
+a single universe.  In such a setting, array shapes would themselves be arrays,
+guaranteeing that any operation on shapes is immediately applicable to arrays.
+A minimal prerequisite for this construction would be the ability to embed the
+array theory presented in this paper into such a type theory.
+Our experiments, however, suggest that
+attaining this goal might require something akin to very dependent
+types~\citep{altenkirch_et_al:LIPIcs.TYPES.2022.10}.

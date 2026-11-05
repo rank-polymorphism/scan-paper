@@ -1,0 +1,14 @@
+# Agda interface files
+*.agdai
+_build/
+
+# LaTeX build outputs
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.ptb
+paper.pdf

@@ -1,0 +1,79 @@
+\section{Introduction}
+
+Rank polymorphism is a language feature that permits the definition of
+functions operating on arrays of arbitrary rank, where the rank of an array is
+the number of its dimensions (axes). As an illustration, consider a
+function that adds two numeric arrays element-wise; the same definition applies
+to 0-dimensional, 1-dimensional, $\ldots$ arrays. A common justification for
+supporting rank polymorphism is its facilitation of generic programming: rather
+than providing a separate definition for each array rank, a single definition
+suffices for all ranks. This reduces the likelihood of errors, curtails
+verbosity, and---because compositions of rank-polymorphic operations yield more
+general specifications---encourages programmers to contemplate corner cases that
+might otherwise be overlooked~\citep{10.1145/1283920.1283935}. Arguably, this
+is a principal reason why specifications in the APL~\citep{Iverson:1962:APL}
+family are exceptionally terse.
+
+Although this interpretation of rank polymorphism dates back to the 1960s, the
+present pearl offers a fresh perspective on the core idea, showing that,
+when rank polymorphism is made to work harder, it yields considerably richer
+benefits.
+
+First, rank polymorphism gives rise to a notion of algorithmic
+equivalence. For a given rank-polymorphic function one can often define an
+equivalence relation on array shapes such that reshaping an array within the
+same equivalence class does not affect the computed values. A simple example is
+the sum of all array elements---the resulting value remains unchanged regardless
+of the shape assigned to the input array (provided that reshapes neither add
+nor remove elements).
+
+Second, if array shapes are endowed with a richer structure than a mere
+sequence of dimensions, rank polymorphism becomes a tool for performance
+engineering. As \citet{10.5555/280586} demonstrated, the choice of data structures determines
+algorithmic complexity in functional languages. Analogously, we show that the
+choice of array shape influences the complexity of array-based algorithms.
+Consider a rank-polymorphic function together with a shape equivalence relation
+such that all inputs in the same class produce identical results. Assuming a
+fixed evaluation strategy and runtime costs, reshapes within the equivalence
+class dictate the actual execution time while preserving the computed values.
+In other words, a rank-polymorphic specification defines \emph{what} is
+computed, whereas the choice of shape within an equivalence class determines
+\emph{how} the computation proceeds.  Consequently, finding an efficient
+algorithm amounts to searching for a shape that minimises the runtime cost; in
+this paper we compare candidate shapes by evaluating a cost model.  In
+principle, such cost models can encode assumptions about the underlying
+hardware, such as parallelism, memory hierarchy or cache sizes; here we only
+model the number of operations and parallelism.  Other aspects, such as the
+layout of arrays in memory or the sparsity of the data, are determined by the
+choice of array representation rather than by shapes, and our cost model does
+not account for them.
+
+The principal technical contribution of this work is a precise formulation of
+the above ideas via a framework in Agda, which enables us to define:
+%
+(i) rank-polymorphic arrays (Section~\ref{sec:arrays});
+(ii) equivalence classes of shapes (Section~\ref{sec:reshaping}); and
+(iii) runtime-cost models (Section~\ref{sec:runtime}).
+
+Using the scan algorithm as a running example, we (i) encode a rank-polymorphic
+version of scan; (ii) prove that all scans belonging to a chosen
+shape-equivalence class compute identical results; (iii) devise a cost model
+for an idealised multicore processor; and (iv) demonstrate the runtime impact
+of reshaping.
+
+When we introduce rank-polymorphic arrays, we deliberately avoid fixing the
+representation of arrays to any particular data structure. We achieve this by
+specifying an array theory that stipulates assumptions about shapes and
+indices, whilst requiring the concrete array datatype to be a representable
+functor. Our running example and accompanying equivalence proof are presented
+without committing to a specific model, meaning that they can be instantiated
+for any admissible representation. Thus, we may (a) define array
+representations and basic combinators in Agda; (b) perform performance
+engineering to select optimal array shapes for a given representation; and (c)
+subsequently instantiate our algorithm for that representation, preserving the
+established correctness guarantees.  In the remainder of the paper we guide
+the reader through the rationale behind our design choices and the technical
+details of each component of the framework.  This paper is an Agda
+script, available online~\citep{paper-src}; it has been checked with
+Agda 2.8.0~\citep{agda-2-8-0} and the Agda standard library
+version 2.3~\citep{agda-stdlib-2-3}.

@@ -1,0 +1,176 @@
+\documentclass[final,pearl]{jfp-epi}
+
+\jfpVolume{36}
+\jfpArticle{20}
+\jfpDOI{10.46298/jfp.17992}
+\jfpYear{2026}
+\received[Submitted]{December 2024}
+\received[accepted]{October 2026}
+
+% Author-year citations, as in the earlier versions of the paper.
+\citestyle{acmauthoryear}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+
+% Add definitions for abbreviations like e.g.; i.e; etc. with
+% correct spacing depending on the parameters.  In this case
+% `all' exposes all the definitions of the package, and `british'
+% makes sure that there is no comma after e.g. or i.e.
+\usepackage[all,british]{foreign}
+
+
+\usepackage{natbib}
+\usepackage{xcolor}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{mathpartir}
+\usepackage{varwidth}
+
+\usepackage{agda}
+\usepackage{newunicodechar}
+\usepackage{bm}
+% \usepackage{unicode-math}
+% MnSymbol cannot be combined with newtxmath (loaded by jfp-epi): too many
+% math fonts.  The small triangles it provided are defined below instead.
+\newcommand{\smalltriangleright}{\mathbin{\scriptstyle\triangleright}}
+\newcommand{\smalltriangleleft}{\mathbin{\scriptstyle\triangleleft}}
+
+% for pictures
+\usepackage{tikz}
+\usepackage{caption}
+
+% https://tex.stackexchange.com/questions/318142/typeseeting-a-multiset-with-double-curly-braces
+\newcommand*{\xlbrace}{[\mskip-5mu[}
+\newcommand*{\xrbrace}{]\mskip-5mu]}
+
+\newcommand*{\ldblbrace}{\{\mskip-5mu\{}
+\newcommand*{\rdblbrace}{\}\mskip-5mu\}}
+
+\newunicodechar{₁}{\ensuremath{_1}}
+\newunicodechar{₂}{\ensuremath{_2}}
+\newunicodechar{₃}{\ensuremath{_3}}
+\newunicodechar{₄}{\ensuremath{_4}}
+\newunicodechar{₅}{\ensuremath{_5}}
+\newunicodechar{ι}{\ensuremath{\iota}}
+\newunicodechar{ₗ}{\ensuremath{_l}}
+\newunicodechar{ₐ}{\ensuremath{_a}}
+\newunicodechar{ᵣ}{\ensuremath{_r}}
+\newunicodechar{ʳ}{\ensuremath{^r}}
+\newunicodechar{ˡ}{\ensuremath{^l}}
+\newunicodechar{ℕ}{\ensuremath{\mathbb{N}}}
+\newunicodechar{∀}{\ensuremath{\forall}}
+\newunicodechar{≡}{\ensuremath{\equiv}}
+\newunicodechar{≈}{\ensuremath{\approx}}
+\newunicodechar{∎}{\ensuremath{\blacksquare}}
+\newunicodechar{⊛}{\ensuremath{\circledast}}
+\newunicodechar{⊗}{\ensuremath{\otimes}}
+\newunicodechar{⊕}{\ensuremath{\oplus}}
+\newunicodechar{φ}{\ensuremath{\phi}}
+\newunicodechar{ψ}{\ensuremath{\psi}}
+\newunicodechar{ε}{\ensuremath{\epsilon}}
+\newunicodechar{λ}{\ensuremath{\lambda}}
+\newunicodechar{′}{{'}}
+\newunicodechar{∷}{\ensuremath{\dblcolon}}
+\newunicodechar{↔}{\ensuremath{\leftrightarrow}}
+\newunicodechar{↦}{\ensuremath{\mapsto}}
+\newunicodechar{∘}{\ensuremath{\circ}}
+\newunicodechar{⁻}{\ensuremath{^{-}}}
+\newunicodechar{∙}{\ensuremath{\boldsymbol{\cdot}}}
+\newunicodechar{▹}{\ensuremath{\smalltriangleright}}
+\newunicodechar{◃}{\ensuremath{\smalltriangleleft}}
+\newunicodechar{▷}{\ensuremath{\blacktriangleright}}
+\newunicodechar{◁}{\ensuremath{\blacktriangleleft}}
+\newunicodechar{Σ}{\ensuremath{\Sigma}}
+\newunicodechar{∈}{\ensuremath{\in}}
+\newunicodechar{⟦}{\ensuremath{\llbracket}}
+\newunicodechar{⟧}{\ensuremath{\rrbracket}}
+\newunicodechar{∶}{\ensuremath{\bm{:}}}  
+\newunicodechar{♭}{\ensuremath{\flat}}  
+\newunicodechar{⇒}{\ensuremath{\Rightarrow}}  
+\newunicodechar{⊔}{\ensuremath{\sqcup}}  
+\newunicodechar{⦃}{\ensuremath{\ldblbrace}}
+\newunicodechar{⦄}{\ensuremath{\rdblbrace}}
+\newunicodechar{⊤}{\ensuremath{\top}}
+
+% Some shortcut commands for agda symbols
+\newcommand{\AD}[1]{\AgdaDatatype{#1}}
+\newcommand{\AC}[1]{\AgdaInductiveConstructor{#1}}
+\newcommand{\AF}[1]{\AgdaFunction{#1}}
+\newcommand{\AB}[1]{\AgdaBound{#1}}
+\newcommand{\AK}[1]{\AgdaKeyword{#1}}
+\newcommand{\AR}[1]{\AgdaField{#1}}
+\newcommand{\AM}[1]{\AgdaModule{#1}}
+\newcommand{\AN}[1]{\AgdaNumber{#1}}
+\newcommand{\AS}[1]{\AgdaString{#1}}
+
+\renewcommand{\AgdaCommentFontStyle}[1]{\textrm{#1}}
+\renewcommand{\AgdaFontStyle}[1]{\textrm{#1}}
+\renewcommand{\AgdaKeywordFontStyle}[1]{\textrm{#1}}
+
+\newcommand\codeblock[1]{%
+  {\begin{varwidth}{0.9\textwidth}#1\end{varwidth}}
+}
+
+% These help with mathpar environment being too greedy on
+% the vertical space: https://tex.stackexchange.com/questions/47400/remove-vertical-space-around-align
+% and also: https://tex.stackexchange.com/questions/346444/mathpartir-abovedisplayskip-and-belowdisplayskip-affect-placement-of-side-con
+\setlength{\abovedisplayskip}{0pt}
+\setlength{\belowdisplayskip}{0pt}
+\setlength{\abovedisplayshortskip}{0pt}
+\setlength{\belowdisplayshortskip}{0pt}
+
+\begin{document}
+
+\title{Rank polymorphism at work}
+
+\author{Artjoms {\v{S}}inkarovs}
+\orcid{0000-0003-3292-2985}
+\affiliation{%
+  \institution{University of Southampton}
+  \city{Southampton}
+  \country{UK}
+  \authoremail{A.Sinkarovs@soton.ac.uk}
+}
+\author{Sven-Bodo Scholz}
+\orcid{0000-0002-8663-1043}
+\affiliation{%
+  \institution{Radboud University}
+  \city{Nijmegen}
+  \country{Netherlands}
+  \authoremail{SvenBodo.Scholz@ru.nl}
+}
+
+\begin{abstract}
+  This pearl demonstrates how rank polymorphism enables programmers to abstract
+  per\-for\-man\-ce-tuning aspects into the ranks and shapes of function arguments.
+  Using prefix sum as an example, we show how a single, generic
+  rank-polymorphic specification can represent an entire class of traditionally
+  separate algorithmic specifications that differ in performance
+  characteristics but not in the overall outcome.
+
+  The elegance of this approach lies in the observation that, once
+  encoded within a dependently-typed language, we can prove that certain
+  classes of argument reshaping do not affect the overall computational
+  outcome.  Consequently, this establishes the equivalence of all corresponding
+  algorithmic specifications, which in classic (typically imperative) settings
+  would be extremely tedious, if feasible at all.
+\end{abstract}
+
+\maketitle
+
+\input{intro}
+\input{array}
+\input{initial}
+\input{combinators} % NOTE this includes vector.tex
+\input{performance}
+\input{related}
+\input{conclusions}
+
+\section*{Conflicts of interest}
+None.
+
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{paper}
+\end{document}
